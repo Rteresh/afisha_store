@@ -6,10 +6,10 @@ from django.http import JsonResponse
 
 
 def ping(request):
-    data = {'Hello ': 'pong!'}
+    data = {'Hello ': 'word!'}
     return JsonResponse(data)
 
 
 def index(request):
-    context = 'Hello Word, My name Roman, ist my test-sertver-on-heroku'
+    context = {'Hello Word, My name Roman, ist my test-sertver-on-heroku':1}
     return JsonResponse(context)
