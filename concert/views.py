@@ -11,5 +11,5 @@ def ping(request):
 
 
 def index(request):
-    context = {'Hello Word, My name Roman, ist my test-sertver-on-heroku':1}
+    context = {'Hello Word, My name Roman, ist my test-sertver-on-heroku':12}
     return JsonResponse(context)
