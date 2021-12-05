@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', default='foo')
 
 # DEBUG = int(os.environ.get('DEBUG', default=0))
-DEBUG = True
+DEBUG = int(os.environ.get('DEBUG', default=0))
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'floating-retreat-10622.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'afisha1.herokuapp.com']
 # Application definition
 
 INSTALLED_APPS = [
