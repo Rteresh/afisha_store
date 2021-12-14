@@ -1,10 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div class="header-mid__search">
+    <form action="/search/" method="GET">
+        <input class="wide-search-input" type="search" name="q" id="q" autocomplete="off" placeholder="Поиск">
 
-</body>
-</html>
+        <button><i class="fa fa-search"></i></button>
+        <div class="search-toggle search-autocomplete"></div>
+        <div class="kea-searchbox-result-wrapper" style="display: none;">
+            <div class="kea-search-container">
+                <div class="kea-search-results kea-msf-extended">
+                    <div class="kea-msf-column">
+                        <div class="kea-msf-suggestion-words-root"></div>
+                        <div class="kea-msf-history-root"></div>
+                        <div class="kea-msf-categories-root"></div>
+                        <div class="kea-msf-suggestions-root"></div>
+                    </div>
+                    <div class="kea-msf-products-root"></div>
+                </div>
+                <div class="kea-msf-noresult">Ничего не найдено.</div>
+            </div>
+        </div>
+    </form>
+</div>

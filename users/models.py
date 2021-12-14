@@ -8,4 +8,4 @@ class User(AbstractUser):
     age = models.PositiveIntegerField(blank=False, default=18)
     first_name = None
     last_name = None
-    image = models.ImageField(blank=True)
+    image = models.ImageField(upload_to='users_avatar', blank=True)

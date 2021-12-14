@@ -24,15 +24,27 @@ class Voice(models.Model):
 class ClassicalMusic(Concert):
     type_of_voice = models.ForeignKey(Voice, on_delete=models.CASCADE)
     name_executor = models.CharField(max_length=64, unique=True)
+    type_id = models.PositiveIntegerField(default=1)
+
+    def id_type(self):
+        return 1
 
 
 class OpenAir(Concert):
     address = models.TextField(blank=False)
     headliner = models.CharField(blank=False, max_length=64)
+    type_id = models.PositiveIntegerField(default=2)
+
+    def id_type(self):
+        return 2
 
 
 class Party(Concert):
     age = models.PositiveIntegerField(blank=False)
+    type_id = models.PositiveIntegerField(default=3)
+
+    def id_type(self):
+        return 3
 
 
 class Basket(models.Model):

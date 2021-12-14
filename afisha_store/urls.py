@@ -17,15 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from concert.views import index
+from concert.views import index, product,search
 from django.conf import settings
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('concerts/', include('concert.urls', namespace='concerts')),
     path('users/', include('users.urls', namespace='users')),
-    path('', index, name='index')
-]
+    path('', index, name='index'),
+    path('product/<int:concert_id>', product, name='product'),
+    path('search/<search_name>', search, name='search')
 
+]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

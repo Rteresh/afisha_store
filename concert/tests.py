@@ -1,3 +1,5 @@
-from django.test import TestCase
+a = {
+    's': [['1', 2], ['2', 3]]
+}
 
-# Create your tests here.
+print(a.get('s')[0][0])
