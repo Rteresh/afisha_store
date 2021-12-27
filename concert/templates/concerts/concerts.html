@@ -19,46 +19,40 @@
             <!-- /.col-lg-3 -->
 
             <div class="col-lg-9">
-
                 <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-
-                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
-
-                <div class="row">
-                    {% for item in products %}
-                        <div class="col-lg-4 col-md-6 mb-4">
-                            <div class="card h-100">
-                                <a href="{% url 'product' item.id %}">
-                                    <img class="card-img-top"
-                                         src="/media/{{ item.post_image }}"
-                                         alt="">
-                                </a>
-                                <div class="card-body">
-                                    <h4 class="card-title">
-                                        <a href="{% url 'product' item.id %}">{{ item.name }}</a>
-                                    </h4>
-                                    <h5>{{ item.price }} руб.</h5>
-                                    <p class="card-text">{{ concert.short_description }}</p>
-                                </div>
-                                <div class="card-footer text-center">
-                                    <a href="{% url 'concerts:basket_add' item.id %}">
-                                        <button type="button" class="btn btn-outline-success">
-                                            Отправить в корзину
-                                        </button>
+                {% if products %}
+                    <div class="row">
+                        {% for item in products %}
+                            <div class="col-lg-4 col-md-6 mb-4">
+                                <div class="card h-100">
+                                    <a href="{% url 'product' item.id %}">
+                                        <img class="card-img-top"
+                                             src="/media/{{ item.post_image }}"
+                                             alt="">
                                     </a>
+                                    <div class="card-body">
+                                        <h4 class="card-title">
+                                            <a href="{% url 'product' item.id %}">{{ item.name }}</a>
+                                        </h4>
+                                        <h5>{{ item.price }} руб.</h5>
+                                        <p class="card-text">{{ concert.short_description }}</p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <a href="{% url 'concerts:basket_add' item.id %}">
+                                            <button type="button" class="btn btn-outline-success">
+                                                Отправить в корзину
+                                            </button>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <h4>Products no found</h4>
+                {% endif %}
+
                 {% if not products.paginator.num_pages == 1 %}
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">

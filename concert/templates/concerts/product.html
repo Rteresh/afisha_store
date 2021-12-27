@@ -1,0 +1,42 @@
+{% extends 'concerts/base.html' %}
+{% load static %}
+{% block css %}
+    <link href="{% static 'css/concerts.css' %}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <img width="400" height="400"
+                     src="/media/{{ product.post_image }}"
+                     class="img-thumbnail">
+                <a  size ="40">
+                    {{ product.price }} руб
+                </a>
+            </div>
+
+            <div class="col-sm-4">
+                <li class='col-2'>
+                    {{ product.description }}
+                </li>
+            </div>
+            <div class="col-sm-4">
+                <a class='col-3' href="{% url 'concerts:basket_add' product.id %}">
+                    <i class="fa fa-shopping-cart fa-2x " aria-hidden="true">
+                        Отправить в корзину
+                    </i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Store 2021</p>
+        </div>
+        <!-- /.container -->
+    </footer>
+{% endblock %}

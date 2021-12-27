@@ -33,16 +33,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <div class="search-box">
-                    <input class='search-txt' type="text" name="" placeholder="
-                            Введите запрос">
-                    <a class="search-btn" href="{% url 'search' %}">
-                        {#                    <a class="search-btn" href="#">#}
-                        <i class="fas fa-search>"></i>
-                    </a>
-                </div>
+                {#                <form class="search-box" method="post" action="{% url 'concerts:search' %}">{% csrf_token %}#}
+                {#                    <label for=btn-search></label>#}
+                {#                    <input class='search-txt' type="text" name=""#}
+                {#                           placeholder=" Введите запрос">#}
+                {#                    <a class=btn-search>#}
+                {#                        <button class="fas fa-search fa-2x"></button>#}
+                {#                    </a>#}
+                {##}
+                {#                    <a class="search-btn" href="{% url 'search' %}">#}
+                {#                    <li class=btn-search>#}
+                {#                        <a class=btn-search  href="concerts.html"><i class="fas fa-search fa-2x fa-spin" inp#}
+                {#                        ></i></a>#}
+                {#                    </li>#}
+                {##}
+                {##}
+                {#                </form>#}
 
-                <li class="nav-item">
+                <div class="wrap">
+                    <form class="search" method="GET" action="{% url 'concerts:searchResults' %}">
+                        <input type="text" name="q" class="searchTerm" placeholder="What are you looking for?">
+                        <button type="submit" class="searchButton">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </div>
+                <li class=" nav-item
+                    ">
                     <a class="nav-link" href="{% url 'concerts:index' %}">Concerts <i class="fas fa-shopping-bag"></i>
                     </a>
                 </li>

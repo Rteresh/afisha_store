@@ -11,8 +11,6 @@ from django.contrib.auth.decorators import login_required
 def login(request):
     if request.method == "POST":
         form = UserLoginForm(data=request.POST)
-        print('check')
-
         if form.is_valid():
             username = request.POST['username']
             password = request.POST['password']
